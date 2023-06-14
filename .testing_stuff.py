@@ -33,20 +33,19 @@ def print_tree(
     :param entry_ind:   entry indent
     :param last_ind:    the last entry indent
     """
-    print(list(os.scandir(root_path)))
+    files = list(os.scandir(root_path))
+    for i, entry in enumerate(files):
+        if i == len(files) - 1:
+            entry_ind = last_ind
 
-    """with os.scandir(root_path) as files:
-
-        for entry in files:
-
-            if entry.is_file():
-                print(f"{ind} {entry_ind} {file} {str(entry.name)}")
-            else:
-                print(f"{ind} {entry_ind} {folder} {str(entry.name)}")
-                print_tree(
-                    root_path=f"{str(root_path)}/{str(entry.name)}",
-                    ind=ind + " " + INDENT
-                )"""
+        if entry.is_file():
+            print(f"{ind} {entry_ind} {file} {str(entry.name)}")
+        else:
+            print(f"{ind} {entry_ind} {folder} {str(entry.name)}")
+            print_tree(
+                root_path=f"{str(root_path)}/{str(entry.name)}",
+                ind=ind + " " + INDENT
+            )
 
 
 print_tree()
