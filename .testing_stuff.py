@@ -35,6 +35,8 @@ def print_tree(
     """
     files = list(os.scandir(root_path))
     for i, entry in enumerate(files):
+
+        # If the item is last in folder: replace indent type
         if i == len(files) - 1:
             entry_ind = last_ind
 
@@ -42,6 +44,8 @@ def print_tree(
             print(f"{ind} {entry_ind} {file} {str(entry.name)}")
         else:
             print(f"{ind} {entry_ind} {folder} {str(entry.name)}")
+
+            # Recursive call of print_tree() for each folder
             print_tree(
                 root_path=f"{str(root_path)}/{str(entry.name)}",
                 ind=ind + " " + INDENT
