@@ -33,7 +33,9 @@ def print_tree(
     :param entry_ind:   entry indent
     :param last_ind:    the last entry indent
     """
-    with os.scandir(root_path) as files:
+    print(list(os.scandir(root_path)))
+
+    """with os.scandir(root_path) as files:
 
         for entry in files:
 
@@ -44,7 +46,7 @@ def print_tree(
                 print_tree(
                     root_path=f"{str(root_path)}/{str(entry.name)}",
                     ind=ind + " " + INDENT
-                )
+                )"""
 
 
 print_tree()
