@@ -11,20 +11,15 @@ LAST_ENTRY_INDENT = "└──"
 # Current directory path
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 
-# First string (print root directory)
-print(f"{ENTRY_INDENT} {FOLDER_ICON} {os.path.basename(ROOT_PATH)}")
 
-
-def print_tree(
-        root_path: AnyStr | str = ROOT_PATH,
-        folder: str = FOLDER_ICON,
-        file: str = FILE_ICON,
-        ind: str = INDENT,
-        entry_ind: str = ENTRY_INDENT,
-        last_ind: str = LAST_ENTRY_INDENT
-) -> None:
+def print_tree(root_path: AnyStr | str = ROOT_PATH,
+               folder: str = FOLDER_ICON,
+               file: str = FILE_ICON,
+               ind: str = INDENT,
+               entry_ind: str = ENTRY_INDENT,
+               last_ind: str = LAST_ENTRY_INDENT) -> None:
     """
-    Prints a tree
+    Prints a tree. Recursive.
 
     :param root_path:   root path, defaults to current dir path
     :param folder:      folder icon
@@ -33,23 +28,28 @@ def print_tree(
     :param entry_ind:   entry indent
     :param last_ind:    the last entry indent
     """
-    files = list(os.scandir(root_path))
-    for i, entry in enumerate(files):
+    entries: list[os.DirEntry] = list(os.scandir(root_path))
 
-        # If the item is last in folder: replace indent type
-        if i == len(files) - 1:
+    for i, entry in enumerate(entries):
+
+        # If the entry is last in folder: replace indent type.
+        if i == len(entries) - 1:
             entry_ind = last_ind
 
         if entry.is_file():
+            # If the entry is a file: print it and go on.
             print(f"{ind} {entry_ind} {file} {str(entry.name)}")
         else:
+            # If the entry is a folder: print it and ...
             print(f"{ind} {entry_ind} {folder} {str(entry.name)}")
-
-            # Recursive call of print_tree() for each folder
+            # ... call of print_tree() for this folder.
             print_tree(
                 root_path=f"{str(root_path)}/{str(entry.name)}",
                 ind=ind + " " + INDENT
             )
 
+
+# First string (print root directory)
+print(f"{ENTRY_INDENT} {FOLDER_ICON} {os.path.basename(ROOT_PATH)}")
 
 print_tree()
