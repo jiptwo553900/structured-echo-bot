@@ -11,7 +11,7 @@ LAST_ENTRY_INDENT = "└──"
 # Current directory path
 ROOT_PATH = os.path.dirname(os.path.realpath(__file__))
 
-# First string (root directory)
+# First string (print root directory)
 print(f"{ENTRY_INDENT} {FOLDER_ICON} {os.path.basename(ROOT_PATH)}")
 
 
