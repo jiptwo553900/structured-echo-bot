@@ -1,8 +1,12 @@
 # Config
 /.env
 
+# Tools
+/.tree_printer/
+
 # JetBrains
 /.idea/
 
 # Cache
 /.mypy_cache/
+
