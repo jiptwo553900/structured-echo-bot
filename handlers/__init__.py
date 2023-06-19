@@ -1,1 +1,1 @@
-import user_handlers, other_handlers
+from . import user_handlers, other_handlers
