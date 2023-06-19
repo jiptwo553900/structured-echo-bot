@@ -74,4 +74,4 @@ def print_tree(root_path: str = ROOT_PATH,
 
 
 if __name__ == "__main__":
-    print_tree(root_path="..")
+    print_tree(root_path=os.path.realpath(".."))
