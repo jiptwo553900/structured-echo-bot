@@ -1,10 +1,14 @@
+from aiogram import Router
 from aiogram.types import Message
-
 from lexicon import LEXICON_RU
+
+# Инициализируем роутер уровня модуля
+router: Router = Router()
+
 
 # Этот хэндлер будет срабатывать на любые ваши сообщения,
 # кроме команд "/start" и "/help"
-@dp.message()
+@router.message()
 async def send_echo(msg: Message):
     try:
         await msg.send_copy(chat_id=msg.chat.id)
