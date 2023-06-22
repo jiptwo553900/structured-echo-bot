@@ -19,7 +19,6 @@ made with my micro-project: [folder-tree-printer](https://github.com/jiptwo55390
 ```
 ├── 📁 structured-echo-bot
 │   ├── 📄 .env                   # API token here
-│   ├── 📄 .env.example
 │   ├── 📄 .gitignore
 │   ├── 📄 bot.py                    
 │   ├── 📁 config_data            # classes and config load
@@ -32,5 +31,6 @@ made with my micro-project: [folder-tree-printer](https://github.com/jiptwo55390
 │   ├── 📁 lexicon
 │   │   ├── 📄 lexicon.py         # bot answers
 │   │   └── 📄 __init__.py
-│   └── 📄 README.md
+│   ├── 📄 README.md
+│   └── 📄 requirements.txt
 ```
